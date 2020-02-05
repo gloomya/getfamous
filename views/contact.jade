@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    section.section.section-lg.bg-gradient-default
+        .container.pt-lg.pb-300
+            .row.text-center.justify-content-center
+                .col-lg-10
+                    h2.display-3.text-white Do something
+                    p.lead.text-white
+                        | According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice.
+            .row.row-grid.mt-5
+                .col-lg-4
+                    .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+                        i.ni.ni-settings.text-primary
+                    h5.text-white.mt-3 Promotional tools
+                    p.text-white.mt-3
+                        | The Facebook builds technologies that give people the power to connect with friends and family, find communities and grow businesses.
+                .col-lg-4
+                    .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+                        i.ni.ni-ruler-pencil.text-primary
+                    h5.text-white.mt-3 Grow your market
+                    p.text-white.mt-3
+                        | Keeping up with friends is faster and easier than ever. Share updates and photos, engage with friends and Pages.
+                .col-lg-4
+                    .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+                        i.ni.ni-atom.text-primary
+                    h5.text-white.mt-3 Launch time
+                    p.text-white.mt-3
+                        | Launching a new product into the market can be the beginning of a wonderful friendship… or a total fiasco.
+        // SVG separator
+        .separator.separator-bottom.separator-skew.zindex-100
+            svg(x='0', y='0', viewBox='0 0 2560 100', preserveAspectRatio='none', version='1.1', xmlns='http://www.w3.org/2000/svg')
+                polygon.fill-white(points='2560 0 2560 100 0 100')
+    section.section.section-lg.pt-lg-0.section-contact-us
+        .container
+            .row.justify-content-center.mt--300
+                .col-lg-8
+                    .card.bg-gradient-secondary.shadow
+                        .card-body.p-lg-5
+                            h4.mb-1 Want to work with us?
+                            p.mt-0 Your project is very important to us.
+                            .form-group.mt-5
+                                .input-group.input-group-alternative
+                                    .input-group-prepend
+                                        span.input-group-text
+                                            i.ni.ni-user-run
+                                    input.form-control(placeholder='Your name', type='text')
+                            .form-group
+                                .input-group.input-group-alternative
+                                    .input-group-prepend
+                                        span.input-group-text
+                                            i.ni.ni-email-83
+                                    input.form-control(placeholder='Email address', type='email')
+                            .form-group.mb-4
+                                textarea.form-control.form-control-alternative(name='name', rows='4', cols='80', placeholder='Type a message...')
+                            div
+                                button.btn.btn-default.btn-round.btn-block.btn-lg(type='button') Send Message

@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    section.section.section-shaped.section-lg
+        .shape.shape-style-1.bg-gradient-default
+            span
+            span
+            span
+            span
+            span
+            span
+            span
+            span
+        .container.pt-lg-md
+            .row.justify-content-center
+                .col-lg-5
+                    .card.bg-secondary.shadow.border-0
+                        .card-header.bg-white
+                            .text-muted.text-center.mb-3
+                                small Don't worry we will send you unforgetable one ;)
+                        .card-body
+                            .text-center.text-muted.mb-4
+                                small Please enter your email
+                            form
+                                .form-group.mb-3
+                                    .input-group.input-group-alternative
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-email-83
+                                        input.form-control(placeholder='Email', type='email')
+                                .text-center
+                                    button.btn.btn-primary.my-4(type='button') Send me new password
+                    .row.mt-3
+                        .col-6
+                            a.text-light(href='login')
+                                small Remembered password?
+                        .col-6.text-right
+                            a.text-light(href='register')
+                                small Create new account

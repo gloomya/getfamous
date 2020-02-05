@@ -1,0 +1,137 @@
+extends layout
+
+block content
+    .position-relative
+        // shape Hero
+        section.section.section-lg.section-shaped.pb-250
+            .shape.shape-style-1.shape-default
+                span
+                span
+                span
+                span
+                span
+                span
+                span
+                span
+                span
+            // SVG separator
+            .separator.separator-bottom.separator-skew
+                svg(x='0', y='0', viewBox='0 0 2560 100', preserveAspectRatio='none', version='1.1', xmlns='http://www.w3.org/2000/svg')
+                    polygon.fill-white(points='2560 0 2560 100 0 100')
+        // 1st Hero Variation
+    section.section.section-lg.pt-lg-0.mt--160
+        .container
+            .row.row-grid.align-items-center
+                .col-md-6.order-md-2
+                    img.img-fluid.floating(src='images/promo-1.png', alt='image')
+                .col-md-6.order-md-1
+                    .pr-md-5
+                        .icon.icon-lg.icon-shape.icon-shape-success.shadow.rounded-circle.mb-5
+                            i.ni.ni-single-02
+                        h3 Awesome followers
+                        p
+                            | Social media promotion services your key to success. Get likes and subscribers without blocking your account
+                        ul.list-unstyled.mt-5
+                            li.py-2
+                                .d-flex.align-items-center
+                                    div
+                                        .badge.badge-circle.badge-success.mr-3
+                                            i.ni.ni-single-copy-04
+                                    div
+                                        h6.mb-0 Carefully crafted accounts
+                            li.py-2
+                                .d-flex.align-items-center
+                                    div
+                                        .badge.badge-circle.badge-success.mr-3
+                                            i.ni.ni-satisfied
+                                    div
+                                        h6.mb-0 Amazing posts examples
+                            li.py-2
+                                .d-flex.align-items-center
+                                    div
+                                        .badge.badge-circle.badge-success.mr-3
+                                            i.ni.ni-chat-round
+                                    div
+                                        h6.mb-0 Super friendly support team
+    section.section.pb-0.bg-gradient-warning
+        .container
+            .row.row-grid.align-items-center
+                .col-md-6.order-lg-2.ml-lg-auto
+                    .position-relative.pl-md-5
+                        img.img-center.img-fluid(src='images/ill-2.svg', alt='image')
+                .col-lg-6.order-lg-1
+                    .d-flex.px-3
+                        div
+                            .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+                                i.ni.ni-building.text-primary
+                        .pl-4
+                            h4.display-3.text-white Modern Interface
+                            p.text-white
+                                | The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.
+                    .card.shadow.shadow-lg--hover.mt-5
+                        .card-body
+                            .d-flex.px-3
+                                div
+                                    .icon.icon-shape.bg-gradient-success.rounded-circle.text-white
+                                        i.ni.ni-satisfied
+                                .pl-4
+                                    h5.title.text-success Awesome Support
+                                    p
+                                        | Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter.
+                                    a.text-success(href='contact') Learn more
+                    .card.shadow.shadow-lg--hover.mt-5
+                        .card-body
+                            .d-flex.px-3
+                                div
+                                    .icon.icon-shape.bg-gradient-warning.rounded-circle.text-white
+                                        i.ni.ni-active-40
+                                .pl-4
+                                    h5.title.text-warning Modular Components
+                                    p
+                                        | The thin ice permits much light to penetrate, and the result is a fertile winter ice ecosystem.
+                                    a.text-warning(href='contact') Learn more
+        // SVG separator
+        .separator.separator-bottom.separator-skew.zindex-100
+            svg(x='0', y='0', viewBox='0 0 2560 100', preserveAspectRatio='none', version='1.1', xmlns='http://www.w3.org/2000/svg')
+                polygon.fill-white(points='2560 0 2560 100 0 100')
+    section.section.section-lg
+        .container
+            .row.row-grid.justify-content-center
+                .col-lg-8.text-center
+                    h2.display-3
+                        | You would love this awesome 
+                        span.text-success Promotion System for Social Media
+                    p.lead
+                        | Cause if you do, it can be yours for FREE. Hit the button below to navigate to the page where you can find the followers and likes. Start a new project or give an old project a huge promotional boost!
+                    .btn-wrapper
+                        a.btn.btn-primary.mb-3.mb-sm-0(href='login') Sign In
+                        a.btn.btn-default(href='register') Join
+                    .text-center
+                        h4.display-4.mb-5.mt-5 Available on these social networks
+                        .row.justify-content-center
+                            .col-lg-2.col-4
+                                a(href='https://facebook.com', target='_blank', data-toggle='tooltip', data-original-title='Facebook followers and likes')
+                                    img.img-fluid(alt='image', src='images/square-facebook.png')
+                            .col-lg-2.col-4
+                                a(href='https://instagram.com', target='_blank', data-toggle='tooltip', data-original-title='Facebook followers and likes')
+                                    img.img-fluid(alt='image', src='images/instagram.png')
+                            .col-lg-2.col-4
+                                a(href='https://www.youtube.com/', target='_blank', data-toggle='tooltip', data-original-title='[Coming Soon] YouTube subscribers and likes')
+                                    img.img-fluid.opacity-3(alt='image', src='images/youtube.png')
+                            .col-lg-2.col-4
+                                a(href='https://www.telegram.com', target='_blank', data-toggle='tooltip', data-original-title='[Coming Soon] Telegram subscribers')
+                                    img.img-fluid.opacity-3(alt='image', src='images/telegram.png')
+                            .col-lg-2.col-4
+                                a(href=' https://twitter.com', target='_blank', data-toggle='tooltip', data-original-title='[Coming Soon] Twitter followers')
+                                    img.img-fluid.opacity-3(alt='image', src='images/twitter.png')
+    section.section.section-lg.pt-0
+        .container
+            .card.bg-gradient-warning.shadow-lg.border-0
+                .p-5
+                    .row.align-items-center
+                        .col-lg-8
+                            h3.text-white We made SMM work easier for you.
+                            p.lead.text-white.mt-3
+                                | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture.
+                        .col-lg-3.ml-lg-auto
+                            a.btn.btn-lg.btn-block.btn-white(href='register') Sign Up

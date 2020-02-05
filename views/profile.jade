@@ -31,30 +31,25 @@ block content
                             .col-lg-4.order-lg-1
                                 .card-profile-stats.d-flex.justify-content-center
                                     div
-                                        span.heading 22
+                                        span.heading #{projects}
                                         span.description Projects
                                     div
-                                        span.heading 10
+                                        span.heading #{fblikes + instalikes}
                                         span.description Likes
                                     div
-                                        span.heading 89
+                                        span.heading #{fbfollowers + instafollowers}
                                         span.description Followers
                         .text-center.mt-5
                             h3
-                                | Jessica Jones
-                                span.font-weight-light , 27
+                                | #{username}
                             .h6.font-weight-300
-                                i.ni.location_pin.mr-2
-                                | Bucharest, Romania
+                                i.fa.fa-facebook-square.mr-2
+                                | #{fbprofile}
                             .h6.mt-4
-                                i.ni.business_briefcase-24.mr-2
-                                | Solution Manager - Creative Tim Officer
-                            div
-                                i.ni.education_hat.mr-2
-                                | University of Computer Science
+                                i.fa.fa-instagram.mr-2
+                                | #{instaprofile}
+                            div                            
                         .mt-5.py-5.border-top.text-center
                             .row.justify-content-center
                                 .col-lg-9
-                                    p
-                                        | An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.
                                     a.btn.btn-danger.mb-3.mb-sm-0(href='#') Log Out

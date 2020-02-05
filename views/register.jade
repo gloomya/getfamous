@@ -30,25 +30,25 @@ block content
                         .card-body.px-lg-5.py-lg-5
                             .text-center.text-muted.mb-4
                                 small Or sign up with credentials
-                            form
+                            form(method='POST', action='/profile', name='register')
                                 .form-group
                                     .input-group.input-group-alternative.mb-3
                                         .input-group-prepend
                                             span.input-group-text
                                                 i.ni.ni-hat-3
-                                        input.form-control(placeholder='Name', type='text')
+                                        input.form-control(placeholder='Name', name="username", type='text', required='required')
                                 .form-group
                                     .input-group.input-group-alternative.mb-3
                                         .input-group-prepend
                                             span.input-group-text
                                                 i.ni.ni-email-83
-                                        input.form-control(placeholder='Email', type='email')
+                                        input.form-control(placeholder='Email', name="useremail", type='email', required='required')
                                 .form-group
                                     .input-group.input-group-alternative
                                         .input-group-prepend
                                             span.input-group-text
                                                 i.ni.ni-lock-circle-open
-                                        input.form-control(placeholder='Password', type='password')
+                                        input.form-control(placeholder='Password', name="userpass", type='password', required='required')
                                 .text-muted.font-italic
                                     small
                                         | password strength: 
@@ -56,10 +56,10 @@ block content
                                 .row.my-4
                                     .col-12
                                         .custom-control.custom-control-alternative.custom-checkbox
-                                            input#customCheckRegister.custom-control-input(type='checkbox')
+                                            input#customCheckRegister.custom-control-input(type='checkbox', required='required')
                                             label.custom-control-label(for='customCheckRegister')
                                                 span
                                                     | I agree with the 
                                                     a(href='privacy') Privacy Policy
                                 .text-center
-                                    button.btn.btn-primary.mt-4(type='button') Create account
+                                    button.btn.btn-primary.mt-4(type='submit') Create account

@@ -41,7 +41,13 @@ router.post('/', function(req, res, next) {
 /* GET profile page. */
 router.get('/', function(req, res, next) {
   ssn = req.session;
-  res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+  if(ssn.email) {
+    res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+  } else 
+  {
+    ssn.err = "Please login first";
+    res.redirect('login');
+  }
 });
 
 module.exports = router;

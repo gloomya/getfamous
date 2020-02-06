@@ -23,7 +23,7 @@ block content
                                     span.btn-inner--icon
                                         img(src='images/instagram.svg', alt='image')
                                     span.btn-inner--text Instagram
-                                a.btn.btn-neutral.btn-icon(href='#')
+                                a.btn.btn-neutral.btn-icon.disabled(href='https://facebook.com/', target='_blank')
                                     span.btn-inner--icon
                                         img(src='images/facebook.svg', alt='image')
                                     span.btn-inner--text Facebook
@@ -49,11 +49,17 @@ block content
                                             span.input-group-text
                                                 i.ni.ni-lock-circle-open
                                         input.form-control(placeholder='Password', name="userpass", type='password', required='required')
-                                .text-muted.font-italic
+                                //.text-muted.font-italic
                                     small
-                                        | password strength: 
-                                        span.text-success.font-weight-700 strong
+                                        | error occured: 
+                                        span.text-danger.font-weight-700 #{err}
                                 .row.my-4
+                                    //.col-12.my-2
+                                        .custom-control.custom-control-alternative.custom-checkbox
+                                            input#customCheckName.custom-control-input(type='checkbox', name='instaname')
+                                            label.custom-control-label(for='customCheckName')
+                                                span
+                                                    | I'm using this username as my Instagram login
                                     .col-12
                                         .custom-control.custom-control-alternative.custom-checkbox
                                             input#customCheckRegister.custom-control-input(type='checkbox', required='required')

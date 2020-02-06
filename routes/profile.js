@@ -1,5 +1,7 @@
 var express = require('express');
+// var bcrypt = require('bcrypt');
 var router = express.Router();
+var MongoClient = require('mongodb').MongoClient;
 var ssn;
 
 /* POST profile page. */
@@ -16,7 +18,11 @@ router.post('/', function(req, res, next) {
   ssn.instafollowers = 0;
   ssn.instalikes = 0;
 
-  var MongoClient = require('mongodb').MongoClient;
+  // bcrypt.hash(ssn.pass, 10, function(err, hash) {
+  //   // Store hash in database
+  // });
+
+  
   var url = "mongodb+srv://gloomya:123Qazxc@clusternode-cc2bt.azure.mongodb.net/test?retryWrites=true&w=majority";
   MongoClient.connect(url, function (err, db) {
       if (err) throw err;
@@ -34,7 +40,8 @@ router.post('/', function(req, res, next) {
 
 /* GET profile page. */
 router.get('/', function(req, res, next) {
-  res.render('profile', { title: 'Profile' });
+  ssn = req.session;
+  res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
 });
 
 module.exports = router;

@@ -13,6 +13,7 @@ var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var forgotRouter = require('./routes/forgot');
 var profileRouter = require('./routes/profile');
+var setupRouter = require('./routes/setup');
 var contactRouter = require('./routes/contact');
 var usersRouter = require('./routes/users');
 
@@ -37,6 +38,7 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/forgot', forgotRouter);
 app.use('/profile', profileRouter);
+app.use('/setup', setupRouter);
 app.use('/contact', contactRouter);
 app.use('/users', usersRouter);
 

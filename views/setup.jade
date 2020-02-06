@@ -1,0 +1,55 @@
+extends layout
+
+block content
+    section.section.section-shaped.section-lg
+        .shape.shape-style-1.bg-gradient-default
+            span
+            span
+            span
+            span
+            span
+            span
+            span
+            span
+        .container.pt-lg-md
+            .row.justify-content-center
+                .col-lg-5
+                    .card.bg-secondary.shadow.border-0
+                        .card-header.bg-white.pb-5
+                            .text-muted.text-center.mb-3
+                                small Change the settings
+                        .card-body.px-lg-5.py-lg-5
+                            .text-center.text-muted.mb-4
+                                small Please change your info using form
+                            form(method='POST', action='/profile', name='setup')
+                                .form-group
+                                    .input-group.input-group-alternative.mb-3
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-user-run
+                                        input.form-control(placeholder='Username', name="username", type='text')
+                                .form-group
+                                    .input-group.input-group-alternative.mb-3
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-email-83
+                                        input.form-control(placeholder='Email', name="useremail", type='email')
+                                .form-group
+                                    .input-group.input-group-alternative
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-lock-circle-open
+                                        input.form-control(placeholder='Password', name="userpass", type='password')
+                                .form-group
+                                    .input-group.input-group-alternative
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-single-02
+                                        input.form-control(placeholder='Avatar', name="avatar", type='file')
+                                //.text-muted.font-italic
+                                    small
+                                        | error occured: 
+                                        span.text-danger.font-weight-700 #{err}
+                                    
+                                .text-center
+                                    button.btn.btn-primary.mt-4(type='submit') Submit

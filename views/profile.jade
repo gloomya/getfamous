@@ -23,7 +23,7 @@ block content
                         .row.justify-content-center
                             .col-lg-3.order-lg-2
                                 .card-profile-image
-                                    img.rounded-circle(src='#{avatar}', alt='image')
+                                    img.img-fluid.rounded-circle(src='#{avatar}', alt='image')
                             .col-lg-4.order-lg-3.text-lg-right.align-self-lg-center
                                 .card-profile-actions.py-4.mt-lg-0
                                     a.btn.btn-sm.btn-info.mr-4(data-toggle='collapse', href='#likes', role='button', aria-expanded='false', aria-controls='likes') Get Likes
@@ -56,34 +56,64 @@ block content
                                         .col-lg-9
                                             .card-header.bg-white.pb-5
                                                 .text-muted.mb-3
-                                                    small Likes on your posts and photos
+                                                    small Get likes on your posts and photos instantly
+                                                    button.btn.btn-sm.btn-danger.float-right(data-toggle='collapse', href='#likes', role='button', aria-expanded='false', aria-controls='likes')
+                                                        span.btn-inner--icon
+                                                            i.ni.ni-fat-remove
                                             form(method='POST', action='/likes', name='login')
                                                 .form-group.mb-3
-                                                .row
-                                                    .col-lg-6
-                                                        | Price: #{total}
-                                                        
-                                                    .col-lg-6
-                                                        label(for='amount')
-                                                            | Number: 
-                                                        .input-group.input-group-alternative
-                                                            .input-group-prepend
-                                                                span.input-group-text
-                                                                    i.ni.ni-bag-17
-                                                            input.form-control(placeholder='1', type='number', name='amount', required='required')
+                                                    .row.mt-3
+                                                        .col-lg-6
+                                                            h5 Price: 
+                                                            h6 $0.5 / like
+                                                        .col-lg-6
+                                                            label(for='amount')
+                                                                | Number of likes: 
+                                                            .input-group.input-group-alternative
+                                                                .input-group-prepend
+                                                                    span.input-group-text
+                                                                            i.ni.ni-like-2
+                                                                select#country.form-control(name='number')
+                                                                    option(value='100', name='100') 100
+                                                                    option(value='200', name='200') 200
+                                                                    option(value='500', name='500') 500
+                                                                    option(value='1000', name='1000') 1000
                                                 .form-group.mt-3
+                                                    label(for='amount')
+                                                        | Link to your facebook post: 
                                                     .input-group.input-group-alternative
                                                         .input-group-prepend
                                                             span.input-group-text
-                                                                i.ni.ni-lock-circle-open
-                                                        input.form-control(placeholder='Password', type='password', name='userpass', required='required')
+                                                                i.ni.ni-image
+                                                        input.form-control(placeholder='https://www.facebook.com/zuck/posts/10111506635861291', type='text', name='postlink', required='required')
+                                                .form-group.mb-3
+                                                    .row.mt-3
+                                                        .col-lg-6
+                                                            label(for='country')
+                                                                | Country: 
+                                                            .input-group.input-group-alternative
+                                                                .input-group-prepend
+                                                                    span.input-group-text
+                                                                            i.ni.ni-world
+                                                                select#country.form-control(name='country')
+                                                                    option(value='ca', name='ca') Canada
+                                                                    option(value='usa', name='usa') USA
+                                                        .col-lg-6
+                                                            label(for='amount')
+                                                                | Coverage (speed):
+                                                            .input-group.input-group-alternative
+                                                                .input-group-prepend
+                                                                    span.input-group-text
+                                                                        i.ni.ni-spaceship
+                                                                select#country.form-control(name='speed')
+                                                                    option(value='min', name='min') Minimum
+                                                                    option(value='standart', name='standart') Standart (+0.15)
+                                                                    option(value='max', name='max') Maximum (+0.45)
                                                 .text-muted.font-italic
                                                     small
                                                         span.text-danger.font-weight-700 #{ordererr}
                                                 .text-center
-                                                    button.btn.btn-primary.my-4(type='submit') Order Now
-                            
-                                                        
+                                                    button.btn.btn-primary.my-4(type='submit') Order Now           
                         .mt-5.py-5.border-top.text-center
                             .row.justify-content-center
                                 .col-lg-9

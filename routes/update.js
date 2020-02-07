@@ -28,15 +28,15 @@ router.post('/', function(req, res, next) {
     // bcrypt.hash(ssn.pass, 10, function(err, hash) {
     //   // Store hash in database
     // });
-  
+    var MongoClient = require('mongodb').MongoClient;
     
     var url = "mongodb+srv://gloomya:123Qazxc@clusternode-cc2bt.azure.mongodb.net/test?retryWrites=true&w=majority";
 
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
-        var dbo = db.db("firsty");
+        var dbo = db.db("famous");
         var myquery = { email: ssn.email };
-        var newvalues = { $set: { username: ssn.username, email: newemail, password: ssn.pass, avatar: ssn.avatar } };
+        var newvalues = { $set: { username: newname, email: newemail, password: newpass } };
         dbo.collection("users").updateOne(myquery, newvalues, function (err, res) {
             if (err) throw err;
             console.log("document updated");
@@ -44,8 +44,10 @@ router.post('/', function(req, res, next) {
         });
     });
     ssn.email = newemail;
+    ssn.username = newname;
+    ssn.pass = newpass;
 
-  res.redirect('profile',  {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, avatar: ssn.avatar, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+  res.redirect('profile');
 });
 
 module.exports = router;

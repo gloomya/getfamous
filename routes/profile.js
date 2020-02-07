@@ -65,7 +65,37 @@ router.post('/', function(req, res, next) {
 router.get('/', function(req, res, next) {
   ssn = req.session;
   if(ssn.email) {
-    res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, avatar: ssn.avatar, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb+srv://gloomya:123Qazxc@clusternode-cc2bt.azure.mongodb.net/test?retryWrites=true&w=majority";
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db ("famous");
+        dbo.collection("users").findOne({email: ssn.email },function(err, data) {
+              if (err) throw err;
+              if (data != null) {
+                  ssn.email = data.email;
+                  ssn.username = data.username;
+                  ssn.avatar = data.avatar;
+                  ssn.projects = data.activity.projects;
+                  ssn.fbprofile = data.activity.fbprofile;
+                  ssn.fbfollowers = data.activity.fbfollowers;
+                  ssn.fblikes = data.activity.fblikes;
+                  ssn.instaprofile = data.activity.instaprofile;
+                  ssn.instafollowers = data.activity.instafollowers;
+                  ssn.instalikes = data.activity.instalikes;
+                  console.log("Projects: " + data.activity.projects);
+                  console.log("FB: " + data.activity.fbprofile);
+                  console.log("FB Likes: " + data.activity.fblikes);
+                  res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, avatar: ssn.avatar, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+           
+              }
+              else {
+                ssn.ordererr = "Something weird happened..who knows";
+                res.render('profile', {ordererr: ssn.ordererr});
+              }
+              db.close();
+        });
+    });
   } else 
   {
     ssn.err = "Please login first";

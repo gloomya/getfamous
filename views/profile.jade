@@ -36,7 +36,7 @@ block content
                                     div
                                         span.heading #{fblikes + instalikes}
                                         span.description Likes
-                                    div
+                                    div.opacity-3
                                         span.heading #{fbfollowers + instafollowers}
                                         span.description Followers
                         .text-center.mt-5
@@ -46,11 +46,36 @@ block content
                                 i.fa.fa-facebook-square.mr-2
                                 | #{fbprofile}
                             div
-                                | Welcome to GETFAMOUS and have fun!  
+                                | Welcome to GETFAMOUS! Pick one of the options above to get started.  
                             p
                                 #likes.collapse
                                     .card.card-body
-                                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                        .row
+                                            .col-lg-3
+                                                img.img-fluid.rounded.shadow-lg(src='images/likes.jpg', alt='image', width='220')
+                                            .col-lg-9
+                                                .card-header.bg-white.pb-5
+                                                    .text-muted.mb-3
+                                                        small Likes on your posts and photos
+                                                form(method='POST', action='/likes', name='login')
+                                                    .form-group.mb-3
+                                                        .input-group.input-group-alternative
+                                                            .input-group-prepend
+                                                                span.input-group-text
+                                                                    i.ni.ni-email-83
+                                                            input.form-control(placeholder='Email', type='email', name='useremail', required='required')
+                                                    .form-group
+                                                        .input-group.input-group-alternative
+                                                            .input-group-prepend
+                                                                span.input-group-text
+                                                                    i.ni.ni-lock-circle-open
+                                                            input.form-control(placeholder='Password', type='password', name='userpass', required='required')
+                                                    .text-muted.font-italic
+                                                        small
+                                                            span.text-danger.font-weight-700 #{ordererr}
+                                                    .text-center
+                                                        button.btn.btn-primary.my-4(type='submit') Order Now
+                                
                                                         
                         .mt-5.py-5.border-top.text-center
                             .row.justify-content-center

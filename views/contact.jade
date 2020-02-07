@@ -39,19 +39,23 @@ block content
                         .card-body.p-lg-5
                             h4.mb-1 Want to work with us?
                             p.mt-0 Your project is very important to us.
-                            .form-group.mt-5
-                                .input-group.input-group-alternative
-                                    .input-group-prepend
-                                        span.input-group-text
-                                            i.ni.ni-user-run
-                                    input.form-control(placeholder='Your name', type='text')
-                            .form-group
-                                .input-group.input-group-alternative
-                                    .input-group-prepend
-                                        span.input-group-text
-                                            i.ni.ni-email-83
-                                    input.form-control(placeholder='Email address', type='email')
-                            .form-group.mb-4
-                                textarea.form-control.form-control-alternative(name='name', rows='4', cols='80', placeholder='Type a message...')
-                            div
-                                button.btn.btn-default.btn-round.btn-block.btn-lg(type='button') Send Message
+                            form#contactForm(action='contact', method='post', name='sentMessage')
+                                .form-group.mt-5
+                                    .input-group.input-group-alternative
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-user-run
+                                        input.form-control(placeholder='Your name',name='name', type='text')
+                                .form-group
+                                    .input-group.input-group-alternative
+                                        .input-group-prepend
+                                            span.input-group-text
+                                                i.ni.ni-email-83
+                                        input.form-control(placeholder='Email address',name='mail', type='email')
+                                .form-group.mb-4
+                                    textarea.form-control.form-control-alternative(name='message', rows='4', cols='80', placeholder='Type a message...')
+                                .text-muted.font-italic
+                                        small
+                                            span.text-danger.font-weight-700 #{senderror}
+                                div
+                                    button.btn.btn-default.btn-round.btn-block.btn-lg(type='submit') Send Message

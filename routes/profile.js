@@ -3,13 +3,15 @@ var express = require('express');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var ssn;
+var uemail, upass, uname, exemail, exname;
 
 /* POST profile page. */
 router.post('/', function(req, res, next) {
   ssn = req.session;
-  ssn.username = req.body.username;
-  ssn.email = req.body.useremail;
-  ssn.pass = req.body.userpass;
+  uname = req.body.username;
+  uemail = req.body.useremail;
+  upass = req.body.userpass;
+  ssn.avatar = 'images/users/avatar.svg';
   ssn.projects = 0;
   ssn.fbprofile = 'unknown';
   ssn.fbfollowers = 0;
@@ -27,14 +29,35 @@ router.post('/', function(req, res, next) {
   MongoClient.connect(url, function (err, db) {
       if (err) throw err;
       var dbo = db.db ("famous");
-      var myobj = { username: ssn.username, email: ssn.email, password: ssn.pass, activity: {projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes } };
-      dbo.collection("users").insertOne(myobj, function (err, res) {
-          if (err) throw err;
-          console.log("document inserted");
-          db.close();
+
+      dbo.collection("users").findOne({         
+        $or: [{
+              email: uemail
+              }, {
+              username: uname
+          }]}, function(err, data) {
+              if (err) throw err;
+              if(!data) {
+                    ssn.username = uname;
+                    ssn.email = uemail;
+                    ssn.pass = upass;
+                    var myobj = { username: ssn.username, email: ssn.email, password: ssn.pass, avatar: ssn.avatar, activity: {projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes } };
+                    dbo.collection("users").insertOne(myobj, function (error, res) {
+                        if (error) throw error;
+                        console.log("document inserted");
+                        db.close();
+                    });
+                    res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, avatar: ssn.avatar, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+
+                } else {
+                  ssn.regerr = "Username or Email is already taken, please sign in with different one.";
+                  res.redirect('register'); 
+                }
+
+  
+      
       });
   });
-  res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
 });
 
 
@@ -42,7 +65,7 @@ router.post('/', function(req, res, next) {
 router.get('/', function(req, res, next) {
   ssn = req.session;
   if(ssn.email) {
-    res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
+    res.render('profile', {title: 'Profile', username: ssn.username, email: ssn.email, password: ssn.pass, avatar: ssn.avatar, projects: ssn.projects, fbprofile: ssn.fbprofile, fbfollowers: ssn.fbfollowers, fblikes: ssn.fblikes, instaprofile: ssn.instaprofile, instafollowers: ssn.instafollowers, instalikes: ssn.instalikes });
   } else 
   {
     ssn.err = "Please login first";

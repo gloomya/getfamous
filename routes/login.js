@@ -25,6 +25,7 @@ router.post('/', function(req, res, next) {
             if (data != null) {
             ssn.email = data.email;
             ssn.username = data.username;
+            ssn.avatar = data.avatar;
             ssn.projects = data.activity.projects;
             ssn.fbprofile = data.activity.fbprofile;
             ssn.fbfollowers = data.activity.fbfollowers;

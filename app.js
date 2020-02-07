@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var fileupload = require('express-fileupload');
+const passport = require('passport');
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 var indexRouter = require('./routes/index');
 var aboutRouter = require('./routes/about');
@@ -16,6 +18,7 @@ var forgotRouter = require('./routes/forgot');
 var profileRouter = require('./routes/profile');
 var setupRouter = require('./routes/setup');
 var updateRouter = require('./routes/update');
+var likesRouter = require('./routes/likes');
 var contactRouter = require('./routes/contact');
 var usersRouter = require('./routes/users');
 
@@ -32,6 +35,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'something'}));
 app.use(fileupload());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
@@ -43,6 +48,7 @@ app.use('/forgot', forgotRouter);
 app.use('/profile', profileRouter);
 app.use('/setup', setupRouter);
 app.use('/update', updateRouter);
+app.use('/likes', likesRouter);
 app.use('/contact', contactRouter);
 app.use('/users', usersRouter);
 

@@ -26,8 +26,8 @@ block content
                                     img.rounded-circle(src='#{avatar}', alt='image')
                             .col-lg-4.order-lg-3.text-lg-right.align-self-lg-center
                                 .card-profile-actions.py-4.mt-lg-0
-                                    a.btn.btn-sm.btn-info.mr-4(href='#') Get Likes
-                                    a.btn.btn-sm.btn-default.float-right(href='#') Get Followers
+                                    a.btn.btn-sm.btn-info.mr-4(data-toggle='collapse', href='#likes', role='button', aria-expanded='false', aria-controls='likes') Get Likes
+                                    a.btn.btn-sm.btn-default.float-right.disabled(href='followers') Get Followers
                             .col-lg-4.order-lg-1
                                 .card-profile-stats.d-flex.justify-content-center
                                     div
@@ -43,10 +43,15 @@ block content
                             h3
                                 | #{username}
                             .h6.font-weight-300
-                                i.fa.fa-instagram.mr-2
-                                | #{instaprofile}
+                                i.fa.fa-facebook-square.mr-2
+                                | #{fbprofile}
                             div
-                                | Welcome to GETFAMOUS and have fun!                            
+                                | Welcome to GETFAMOUS and have fun!  
+                            p
+                                #likes.collapse
+                                    .card.card-body
+                                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                                        
                         .mt-5.py-5.border-top.text-center
                             .row.justify-content-center
                                 .col-lg-9

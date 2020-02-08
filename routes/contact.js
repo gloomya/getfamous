@@ -31,8 +31,8 @@ router.post('/', function(req, res, next) {
   var mailOptions = {
     from: 'vickykoroleva@gmail.com',
     to: 'gloomya@gmail.com',
-    subject: 'Contact form submitted',
-    text: name + ' has just submitted a contact form on classproject.\n Please reply to ' + email  + '.\n The message from ' + name + ' looks like this:\n' + message  
+    subject: 'GETFAMOUS - Contact form submitted',
+    text: name + ' has just submitted a contact form GETFAMOUS.\n Please reply to ' + email  + '.\n The message from ' + name + ' looks like this:\n' + message  
   };
   transporter.sendMail(mailOptions, function (error, info) {
       if (error) {

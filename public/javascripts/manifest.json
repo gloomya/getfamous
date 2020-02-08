@@ -1,8 +1,15 @@
 {
     "name": "GetFamous",
     "short_name": "getfamous",
+    "icons": [
+        {
+            "src": "images/android-chrome-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        }
+    ],
     "lang": "en-US",
-    "start_url": "/",
+    "start_url": "/index",
     "display": "standalone",
     "background_color": "white",
     "theme_color": "white"
